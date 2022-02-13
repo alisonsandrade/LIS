@@ -1,100 +1,203 @@
+<!--
+  Inicia a estrutura básica do HTML5 com a tag DOCTYPE. Aqui é onde se informa ao navegador
+  o tipo do documento (HTML) e a sua versão.
+-->
 <!DOCTYPE html>
 <html>
 
+<!-- 
+  Informações dos metadados a serem interpretados pelo navegador web. 
+  Como por exemplo, título do documento, links para folhas de estilo etc.
+-->
 <head>
+  <!-- Esse atributo tem por função indicar o formato de codificação de carecteres utilizado
+  pelo documento HTML. No caso, o padrão será o UTF-8, mas outros países podem utilizar outros
+  formatos como ASCII, ANSI e ISO-8859-1.
+  -->
   <meta charset="UTF-8">
+  <!-- Tag que define o título da página que aparecerá no top do navegador -->
   <title>Cardápio</title>
 
   <!-- Bootstrap - CSS -->
-  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- 
+    Tag responsável pela importação, via CDN, do Bootstrap 5. É através dessa linha que o
+    navegador carregar o Bootstrap 5 e aplica todo o CSS do framework (estilo). Veja que nesse caso
+    não é necessário ter um arquivo .css disponível na aplicação porque importamos via CDN.
+  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
 
+<!-- 
+  Aqui é onde praticamente se inicia todo o projeto, é onde se é colocado o texto, imagem e vídeos, 
+  em que o usuário vê e interage. O próprio nome da tag já indica isso, eis que body significa corpo.
+-->
 <body>
+  <!--
+    Aqui se encontra o cabeçalho da página web, o "header" (em inglês). O principal objetivo é definir 
+    tópicos dentro do texto, mas seus benefícios vão além da formatação. Essa tag é muito importante para 
+    técnicas de SEO. Por exemplo, é por meio dela que o Google e outros buscadores reconhecem esse trecho 
+    da página como um cabeçalho.
+  -->
   <header>
     <!-- Toolbar -->
+    <!-- 
+      A tag HTML nav é utilizada para indicar os links de navegação da página. Veja que a tag está com
+      classes de estilos do framework BootStrap a qual dará uma coloração azulada (padrão do primary)
+      e já vem com css todo responsivo aos dispositivos de todos os tamanhos. Essa tag tem como objetivo
+      fazer a "amarração" dos menus de navegação.
+    -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <!-- Tag div para "sustentar" o container dos links dentro da nav -->
       <div class="container-fluid">
+        <!-- Link de navegação principal sem nenhum redirecionamento (href) específico -->
         <a class="navbar-brand" href="#">
           Coffee
+          <!-- Tag small reduzirá o tamanho do texto entre as tags -->
           <small>Arábica</small>
-        </a>
+        </a> <!-- Final da tag a -->
 
+        <!-- 
+          Butão de navegação que server para fazer um toggle (modificação alternada) do menu quando em
+          dispositivos móveis todos os nomes dos link's não puderem ser apresentados, pelo tamanho da
+          tela.
+          O css Bootstrap aqui faz todo o trabalho, inclusive as animações em JS. Portanto, para funcionar
+          é preciso haver a importação também do JS do BootStrap.
+        -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <!-- Tag spam que abrigará o ícone padrão do menu toggle -->
           <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- 
+          Div para amarração de todos os demais menus. Ela se faz necessária porque a função toggle do
+          Bootstrap só funcionará em telas responsivas (mobile, por exemplo) se estiverem dentro dessa
+          div. O id a identifica a vinculada ao button navbar-toggler. Assim, ao pressionar o botão esse 
+          menu se torna do tipo "collapse" e esconderá/apresentará em forma de acordeão os link's.
+        -->
         <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- 
+            Tag de lista não ordenada (com marcadores). Porém, o CSS do Bootstrap faz uma formatação
+            diferente na ul e a deixa sem os marcadores.
+          -->
           <ul class="navbar-nav">
+            <!-- O tag li representa um elemento da tag ul -->
             <li class="nav-item">
+              <!-- Link de navageção para Home -->
               <a class="nav-link" href="./index.html">Home</a>
             </li>
             <li class="nav-item">
+              <!-- 
+                Link de navageção para Cardápio com formação CSS de link ativo, em razão da propriedade "active".
+                Como o usuário está na página cardápio, então ele aparece como ativo. O Bootstrap faz uma movimentação
+                dinâmica desse atributo de acordo com o link que está ativo.
+              -->
               <a class="nav-link active" aria-current="page" href="#">Cardápio</a>
             </li>
             <li class="nav-item">
+              <!-- 
+                Link de acesso ao menu de sobre. Por enquanto não há nenhum link específico para redirecionamento.
+                O # deixa o link "cego" e não redireciona a nenhum local.
+              -->
               <a class="nav-link" href="#">Sobre</a>
-            </li>
+            </li> <!-- final da tag li -->
           </ul>
         </div>
       </div>
     </nav>
 
   </header>
+  <!--
+    Aqui se encontra a tag da página principal da página web, onde se centraliza todas as demais tags,
+    exceto o header e footer. É basicamente o corpo da tag body.
+  -->
   <main>
+    <!--
+      O elemento <section> é um elemento HTML estrutural usado para agrupar elementos relacionados. 
+      Cada <section> normalmente inclui um ou mais elementos de título e elementos adicionais que apresentam
+      conteúdo relacionado. No caso, essa section será a responsável por abrigar a modal do cadastramento dos objetos.
+    -->
     <section class="my-3">
 
       <!-- Grid -->
+      <!-- div responsável pela delimitação do container da modal -->
       <div class="container">
 
         <!-- Button trigger modal -->
+        <!-- Botão para ativar a modal. O CSS e JS do Bootstrap fará todo o trabalho e efeito de abertura da janela modal -->
         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           +
         </button>
 
         <!-- Modal -->
+        <!-- div da janela principal do modal. Será atribuído um efeito de fade in e out ao acionar e fechar a modal -->
         <div class="modal fade" data-bs-keyboard="false" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <!-- div da modal em que se sustentarão todos os demais elementos -->
           <div class="modal-dialog">
+            <!-- div que delimitará o conteúdo principal da modal -->
             <div class="modal-content">
+              <!-- div responsável pelo conteúdo do título da modal. Header -->
               <div class="modal-header">
+                <!-- Título da modal -->
                 <h5 class="modal-title" id="exampleModalLabel">Adicionar Item</h5>
+                <!-- Botão para fechar a modal. Aqui é atribuído um evento javascript por meio do atributo data-bs-dismiss-->
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+              <!-- div que delimitará o conteúdo em si da modal (abaixo do cabeçalho e acima do rodapé)-->
               <div class="modal-body">
 
+                <!-- tag h1 indicando um título dentro do conteúdo da modal -->
                 <h1>Conteúdo do modal</h1>
 
                 <!-- Formulário -->
+                <!-- formulário de cadastramento dentro da modal -->
                 <form id="foodForm">
+                  <!-- div para delimitar elementos do formulário e posiciona-los de forma vertical e organizada -->
                   <div class="mb-3">
                     <!-- Nome -->
+                    <!-- A tag label é o título do input. O nome que aparecerá para que o usuário saiba a que se refere o input -->
                     <label for="nome" class="form-label">Nome</label>
+                    <!-- Caixa de texto (input) onde se digitará dados para envio no formulário -->
                     <input type="text" name="nome" id="nome" class="form-control">
+                    <!-- div de help (ajuda). Muito utilizado para dar dicas aos usuárioos do que se está pedindo no formulário -->
                     <div id="nomeHelp" class="form-text">Adicione o nome do Alimento.</div>
                   </div>
 
                   <!-- Descrição -->
+                  <!-- div para delimitar elementos do formulário e posiciona-los de forma vertical e organizada -->
                   <div class="mb-3">
+                    <!-- A tag label é o título do input. O nome que aparecerá para que o usuário saiba a que se refere o input -->
                     <label for="descricao" class="form-label">Descrição</label>
+                    <!-- Caixa de texto (input) onde se digitará dados para envio no formulário -->
                     <input type="text" name="descricao" id="descricao" class="form-control">
                   </div>
 
                   <!-- Preço -->
+                  <!-- div para delimitar elementos do formulário e posiciona-los de forma vertical e organizada -->
                   <div class="mb-3">
+                    <!-- A tag label é o título do input. O nome que aparecerá para que o usuário saiba a que se refere o input -->
                     <label for="preco" class="form-label">Preço</label>
+                    <!-- Caixa de texto (input) onde se digitará dados para envio no formulário -->
                     <input type="text" name="preco" id="preco" class="form-control">
                   </div>
 
                   <!-- Imagem -->
+                  <!-- div para delimitar elementos do formulário e posiciona-los de forma vertical e organizada -->
                   <div class="mb-3">
+                    <!-- A tag label é o título do input. O nome que aparecerá para que o usuário saiba a que se refere o input -->
                     <label for="imagem" class="form-label">Imagem</label>
+                    <!-- Caixa de texto (input) onde se digitará dados para envio no formulário -->
                     <input type="text" name="imagem" id="imagem" class="form-control">
                   </div>
 
+                  <!-- div que delimitará o conteúdo do rodapé da janela modal (abaixo do conteúdo)-->
                   <div class="modal-footer">
+                    <!-- botão de fechar o modal. Tem a mesma função e se liga ao mesmo evento do botão no header do modal -->
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
 
                     <!-- <input type="submit" value="Adicionar"> -->
+                    <!-- botão do tipo submit para adicionar um novo item. Por enquanto está apenas disparando um evento submit, porém,
+                    sem qualquer finalidade -->
                     <button type="submit" class="btn btn-primary" id="adicionarFoodButton">
                       Adicionar
                     </button>
@@ -108,6 +211,7 @@
         </div>
 
         <!-- Linha -->
+        <!-- Div para listagem dos itens do cardápio. Nele se poderá incluir tabela com todos os itens já cadastrados. -->
         <div id="itens-cardapio" class="row">
 
           <!-- Colunas-->
@@ -121,10 +225,15 @@
   <footer></footer>
 
   <!-- Cardápio -->
+  <!-- script para conectar a página cardapio.html ao cardapio.js existente dentro da pasta "js". Todos os eventos da página podem
+  ser capturados e repassados a esse arquivo js-->
   <script src="./js/cardapio.js" type="module"></script>
 
   <!-- Bootstrap - Js -->
-  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Tags de importação dos scripts do Bootstrap que são necessários para o funcionamento de toda
+  animação do framework e efeitos dos slides e modal-->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 
 </html>
