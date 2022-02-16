@@ -62,12 +62,15 @@ function createFoodCardItem (item) {
      * Os elementos são preenchidos pelos objetos recebidos no parâmetro. A função se utiliza de
      * template string do ES6 (%{var}) para o preenchimento das variáveis.
      */
+    const image = item.image || './images/product_default.png'
     const view = `<div class="col-3 card my-1 mx-1 py-1">
-                    <img src="${item.image}" class="card-img-top" alt="...">
+                    <img src="${image}" class="card-img-top" alt="${item.name}">
   
                     <div class="card-body">
                       <h5 class="card-title">${item.name}</h5>
                       <p class="card-text">${item.description}</p>
+                      <hr>
+                      <h4 class="text-success">${item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</h4>
                       <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                   </div>`;
@@ -121,6 +124,27 @@ foodForm.onsubmit = function (event) {
   const foodCard = createFoodCardItem(newFood);
   let itensCardapio = document.getElementById("itens-cardapio");
   itensCardapio.insertAdjacentHTML('beforeend', foodCard);
+
+  // Resetar o formulário
+  alertSuccess();
+  foodForm.reset();
+}
+
+/**
+ * 
+ * @param { success, info, danger } type Tipo da mensagem. 
+ * @param { message: string } message Mensagem a ser exibida.
+ * 
+ * Função para exibir a mensagem de sucesso a cada novo item cadastrado
+ */
+function alertSuccess(type = "success", message = "Item cadastrado com sucesso.") {
+  document.querySelector("#alert-message").innerHTML =
+    `
+    <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+      <strong>Parabéns!</strong> ${message}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    `
 }
 
 // Inicialização da função initFoodsCard com o carregamento de todos os itens do cardápio.
