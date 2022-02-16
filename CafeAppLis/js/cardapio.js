@@ -19,11 +19,11 @@ function initFoodsCard () {
 function createFoodCardItem (item) {
 
     const view = `<div class="col-3 card my-1 mx-1 py-1">
-                    <img src="${item.imagem}" class="card-img-top" alt="...">
+                    <img src="${item.image}" class="card-img-top" alt="...">
   
                     <div class="card-body">
-                      <h5 class="card-title">${item.nome}</h5>
-                      <p class="card-text">${item.descricao}</p>
+                      <h5 class="card-title">${item.name}</h5>
+                      <p class="card-text">${item.description}</p>
                       <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                   </div>`;
