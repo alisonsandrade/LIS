@@ -146,8 +146,7 @@
               <!-- div que delimitará o conteúdo em si da modal (abaixo do cabeçalho e acima do rodapé)-->
               <div class="modal-body">
 
-                <!-- tag h1 indicando um título dentro do conteúdo da modal -->
-                <h1>Conteúdo do modal</h1>
+                <div id="alert-message"></div>
 
                 <!-- Formulário -->
                 <!-- formulário de cadastramento dentro da modal -->
@@ -156,9 +155,9 @@
                   <div class="mb-3">
                     <!-- Nome -->
                     <!-- A tag label é o título do input. O nome que aparecerá para que o usuário saiba a que se refere o input -->
-                    <label for="nome" class="form-label">Nome</label>
+                    <label for="name" class="form-label">Nome</label>
                     <!-- Caixa de texto (input) onde se digitará dados para envio no formulário -->
-                    <input type="text" name="nome" id="nome" class="form-control">
+                    <input type="text" name="name" id="name" class="form-control">
                     <!-- div de help (ajuda). Muito utilizado para dar dicas aos usuárioos do que se está pedindo no formulário -->
                     <div id="nomeHelp" class="form-text">Adicione o nome do Alimento.</div>
                   </div>
@@ -167,39 +166,44 @@
                   <!-- div para delimitar elementos do formulário e posiciona-los de forma vertical e organizada -->
                   <div class="mb-3">
                     <!-- A tag label é o título do input. O nome que aparecerá para que o usuário saiba a que se refere o input -->
-                    <label for="descricao" class="form-label">Descrição</label>
+                    <label for="description" class="form-label">Descrição</label>
                     <!-- Caixa de texto (input) onde se digitará dados para envio no formulário -->
-                    <input type="text" name="descricao" id="descricao" class="form-control">
+                    <input type="text" name="description" id="description" class="form-control">
                   </div>
 
                   <!-- Preço -->
                   <!-- div para delimitar elementos do formulário e posiciona-los de forma vertical e organizada -->
                   <div class="mb-3">
                     <!-- A tag label é o título do input. O nome que aparecerá para que o usuário saiba a que se refere o input -->
-                    <label for="preco" class="form-label">Preço</label>
+                    <label for="price" class="form-label">Preço</label>
                     <!-- Caixa de texto (input) onde se digitará dados para envio no formulário -->
-                    <input type="text" name="preco" id="preco" class="form-control">
+                    <input type="text" name="price" id="price" class="form-control">
+                    <div id="nomeHelp" class="form-text">Preço no formato US. Ex: 5.50</div>
                   </div>
 
                   <!-- Imagem -->
                   <!-- div para delimitar elementos do formulário e posiciona-los de forma vertical e organizada -->
                   <div class="mb-3">
                     <!-- A tag label é o título do input. O nome que aparecerá para que o usuário saiba a que se refere o input -->
-                    <label for="imagem" class="form-label">Imagem</label>
+                    <label for="image" class="form-label">Imagem</label>
                     <!-- Caixa de texto (input) onde se digitará dados para envio no formulário -->
-                    <input type="text" name="imagem" id="imagem" class="form-control">
+                    <input type="text" name="image" id="image" class="form-control">
+                    <div id="nomeHelp" class="form-text">Copiar a URL do link da imagem</div>
                   </div>
 
                   <!-- div que delimitará o conteúdo do rodapé da janela modal (abaixo do conteúdo)-->
                   <div class="modal-footer">
+                    
                     <!-- botão de fechar o modal. Tem a mesma função e se liga ao mesmo evento do botão no header do modal -->
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
+                    <button type="reset" class="btn btn-light float-start">Limpar</button>
 
                     <!-- <input type="submit" value="Adicionar"> -->
                     <!-- botão do tipo submit para adicionar um novo item. Por enquanto está apenas disparando um evento submit, porém,
                     sem qualquer finalidade -->
                     <button type="submit" class="btn btn-primary" id="adicionarFoodButton">
-                      Adicionar
+                      Cadastrar
                     </button>
                   </div>
                 </form>
